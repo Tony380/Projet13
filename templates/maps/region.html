@@ -2,9 +2,9 @@
 {% load static %}
 {% block title %}{{ region.name }}{% endblock %}
 {% block content %}
-    <section class="container bg-secondary mt-5">
+    <section class="container">
         <div class="map row">
-            <div class="map_image view col-8 mt-5 border border-white">
+            <div class="map_image view col-8 border border-white">
                 <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="{{ region.viewbox }}">
                     <g>
                     {% for dept in depts %}
@@ -13,7 +13,7 @@
                     </g>
                 </svg>
             </div>
-            <div class="map_list col-4 mt-5">
+            <div class="map_list col-4">
             {% for dept in depts %}
                 <ul>
                     <li><a href="#" class="{{ dept.class_name }}">{{ dept.name }}</a></li>

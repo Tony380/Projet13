@@ -67,7 +67,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #fff;
+  background-color: #6f42c1;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -6219,7 +6219,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #2A0225 !important;
+  background-color: #6c757d !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
