@@ -8,22 +8,22 @@
             <div class="mx-auto text-center">
                 <h1 class="mx-auto my-0 text-uppercase"><span class="un">FR</span><span class="deux">AN</span><span class="trois">CE</span></h1>
                 <h2 class="text-white mx-auto mt-2 mb-5">La france en un clic !</h2>
-                <a class="btn btn-primary js-scroll-trigger" href="#about">Démarrer</a>
+                <a class="btn btn-primary js-scroll-trigger" href="{% url 'maps:country' %}">Commencer</a>
             </div>
         </div>
     </header>
     <!-- Projects-->
-    <section class="projects-section bg-light" id="projects">
+    <section class="projects-section bg-secondary" id="projects">
         <div class="container">
             <!-- Project One Row-->
             <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                <div class="col-lg-6"><img class="img-fluid" src='{% static "img/demo-image-01.jpg"%}' alt="" /></div>
+                <div class="col-lg-6"><img class="img-fluid" src='{% static "img/regions.png"%}' alt="" /></div>
                 <div class="col-lg-6">
-                    <div class="bg-black text-center h-100 project">
+                    <div class="bg-white text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <h4 class="text-white">Misty</h4>
-                                <p class="mb-0 text-white-50">An example of where you can put an image of a project, or anything else, along with a description.</p>
+                                <h4 class="text-dark">Régions</h4>
+                                <p class="mb-0 text-black">Découvrez les régions de la France métropolitaine</p>
                                 <hr class="d-none d-lg-block mb-0 ml-0" />
                             </div>
                         </div>
@@ -32,13 +32,13 @@
             </div>
             <!-- Project Two Row-->
             <div class="row justify-content-center no-gutters">
-                <div class="col-lg-6"><img class="img-fluid" src='{% static "img/demo-image-02.jpg" %}' alt="" /></div>
+                <div class="col-lg-6"><img class="img-fluid" src='{% static "img/departements.png" %}' alt="" /></div>
                 <div class="col-lg-6 order-lg-first">
-                    <div class="bg-black text-center h-100 project">
+                    <div class="bg-white text-center h-100 project">
                         <div class="d-flex h-100">
                             <div class="project-text w-100 my-auto text-center text-lg-right">
-                                <h4 class="text-white">Mountains</h4>
-                                <p class="mb-0 text-white-50">Another example of a project with its respective description. These sections work well responsively as well, try this theme on a small screen!</p>
+                                <h4 class="text-dark">Départements</h4>
+                                <p class="mb-0 text-black">Explorez les départements et leurs communes</p>
                                 <hr class="d-none d-lg-block mb-0 mr-0" />
                             </div>
                         </div>
@@ -48,12 +48,12 @@
         </div>
     </section>
     <!-- Contact-->
-    <section class="contact-section bg-black">
+    <section class="contact-section bg-secondary">
         <div class="container">
             <div class="social d-flex justify-content-center">
-                <a class="mx-2" href="#!"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" href="#!"><i class="fab fa-linkedin"></i></a>
-                <a class="mx-2" href="#!"><i class="fab fa-github"></i></a>
+                <a class="mx-2" target="_blank" href="https://twitter.com/TonyG380"><i class="fab fa-twitter"></i></a>
+                <a class="mx-2" target="_blank" href="https://www.linkedin.com/in/tony-a-gonzalez"><i class="fab fa-linkedin"></i></a>
+                <a class="mx-2" target="_blank" href="https://github.com/Tony380/Projet13"><i class="fab fa-github"></i></a>
             </div>
         </div>
     </section>

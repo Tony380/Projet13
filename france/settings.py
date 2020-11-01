@@ -37,6 +37,8 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'crispy_forms',
+    'users',
+    'maps',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +60,10 @@ ROOT_URLCONF = 'france.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': ['templates',
+                 'templates/france',
+                 'templates/maps',
+                 'templates/users'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

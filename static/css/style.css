@@ -1,9 +1,26 @@
-.un {
+.un{
     -webkit-text-fill-color: blue;
 }
-.deux {
+.deux{
     -webkit-text-fill-color: white;
 }
-.trois {
+.trois{
     -webkit-text-fill-color: red;
+}
+
+.map_image path{
+    fill: cyan;
+    stroke: white;
+    stroke-width: 1px;
+    transition: fill 0.3s;
+}
+.map_image path:hover{
+    fill: yellow;
+}
+.map_list a{
+    text-decoration: none;
+    transition: color 0.3s;
+}
+.view{
+    max-height: 500px;
 }

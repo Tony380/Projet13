@@ -22,7 +22,9 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name='index'),
+    path('maps/', include('maps.urls')),
 ]
+
 
 if settings.DEBUG:
     import debug_toolbar

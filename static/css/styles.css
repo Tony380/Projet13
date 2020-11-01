@@ -6219,7 +6219,7 @@ button.bg-primary:focus {
 }
 
 .bg-secondary {
-  background-color: #6c757d !important;
+  background-color: #2A0225 !important;
 }
 
 a.bg-secondary:hover, a.bg-secondary:focus,
@@ -10326,9 +10326,9 @@ body {
   letter-spacing: 0.15rem;
   border: 0;
 }
-
 .contact-section {
-  padding-top: 5rem;
+  padding-top: 1rem;
+  padding-bottom : 1rem;
 }
 .contact-section .card {
   border: 0;
@@ -10345,9 +10345,6 @@ body {
   border-width: 0.25rem;
   width: 3rem;
 }
-.contact-section .social {
-  margin-top: 5rem;
-}
 .contact-section .social a {
   text-align: center;
   height: 3rem;
@@ -10363,7 +10360,6 @@ body {
 .contact-section .social a:active {
   color: #fff;
 }
-
 .footer {
   padding: 1rem 0;
 }
