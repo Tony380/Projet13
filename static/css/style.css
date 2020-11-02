@@ -1,5 +1,5 @@
 .un{
-    -webkit-text-fill-color: blue;
+    -webkit-text-fill-color: #000080;
 }
 .deux{
     -webkit-text-fill-color: white;
@@ -22,6 +22,13 @@
     transition: color 0.3s;
 }
 .view{
-    margin-top: 200px;
-    max-height: 500px;
+    max-height: 600px;
+}
+.map{
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 100px;
+}
+.color{
+    background: linear-gradient(90deg, #000080, white, red);
 }

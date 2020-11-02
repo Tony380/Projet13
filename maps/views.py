@@ -7,7 +7,7 @@ def country(request):
     """ Metropole page """
     regions = Region.objects.all()
     context = {'regions': regions}
-    return render(request, 'country.html', context)
+    return render(request, 'france.html', context)
 
 
 def region(request, region_id):
