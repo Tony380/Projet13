@@ -20,13 +20,14 @@ def region(request, region_id):
     region = Region.objects.get(id=region_id)
 
     try:
-        wiki_page = wikipedia.summary(region.name, 4)
+        wiki_summary = wikipedia.summary(region.name, 4)
         wiki = wikipedia.page(region.name).url
     except wikipedia.DisambiguationError:
-        wiki_page = wikipedia.page(region.name + '(région administrative)').summary
+        wiki_page = wikipedia.page(region.name + '(région administrative)')
+        wiki_summary = wikipedia.page(region.name + '(région administrative)').summary
         wiki = wiki_page.url
     context = {'depts': depts,
                'region': region,
-               'wiki': wiki_page,
+               'wiki': wiki_summary,
                'wi': wiki}
     return render(request, 'region.html', context)
