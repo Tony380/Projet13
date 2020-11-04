@@ -2,23 +2,28 @@
 {% load static %}
 {% block title %}France Métropolitaine{% endblock %}
 {% block content %}
-    <section class="container">
+    <section class="container apropos">
         <div class="map row border border-black">
-            <div class="map_image col-9">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 650 650">
-                    <g>
-                    {% for region in regions %}
-                        <a class="{{ region.class_name }}" xlink:title="{{ region.name }}" xlink:href="{% url 'maps:region' region_id=region.id %}"><path d="{{ region.coord }}"/></a>
-                    {% endfor %}
-                    </g>
+            <div class="map_image col-12">
+                <svg class="view" xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="20 0 600 600">
+                {% for region in regions %}
+                    <a class="{{ region.class_name }}" xlink:title="{{ region.name }}" xlink:href="{% url 'maps:region' region_id=region.id %}"><path d="{{ region.coord }}"/></a>
+                {% endfor %}
                 </svg>
             </div>
-            <div class="map_list col-3">
-            {% for region in regions %}
-                <ul>
-                    <li><a href="{% url 'maps:region' region_id=region.id %}" class="text-light {{ region.class_name }}">{{ region.name }}</a></li>
-                </ul>
-            {% endfor %}
+        </div>
+    </section>
+    <!--Wikipedia-->
+    <section>
+        <div class="container border border-black p-5 my-5 apropos">
+            <div class="row font-weight-bold underline">
+                <p>A propos</p>
+            </div>
+            <div class="row">
+                <p>{{ wiki }}</p>
+            </div>
+            <div class="row">
+                <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ wi }}">sur Wikipédia</a></p>
             </div>
         </div>
     </section>

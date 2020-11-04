@@ -9,26 +9,30 @@
 }
 
 .map_image path{
-    fill: cyan;
-    stroke: white;
-    stroke-width: 1px;
+    fill: #C1C1C1;
+    stroke: black;
+    stroke-width: 0.3px;
     transition: fill 0.3s;
 }
 .map_image path:hover{
-    fill: yellow;
+    fill: #388E78;
 }
 .map_list a{
     text-decoration: none;
     transition: color 0.3s;
 }
 .view{
-    max-height: 600px;
+    max-height: 550px;
 }
 .map{
     padding-top: 20px;
     padding-bottom: 20px;
     margin-top: 100px;
 }
-.color{
-    background: linear-gradient(90deg, #000080, white, red);
+.underline{
+    text-decoration: underline;
+    font-size: 20px;
+}
+.apropos{
+    background-color: #F0EFAF;
 }

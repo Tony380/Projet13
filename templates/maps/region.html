@@ -2,23 +2,30 @@
 {% load static %}
 {% block title %}{{ region.name }}{% endblock %}
 {% block content %}
-    <section class="container">
-        <div class="map row view border border-black">
-            <div class="map_image col-8">
-                <svg xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="{{ region.viewbox }}">
-                    <g>
-                    {% for dept in depts %}
-                        <a class="{{ dept.class_name }}" xlink:title="{{ dept.name }}" xlink:href="#"><path d="{{ dept.coord }}"/></a>
-                    {% endfor %}
-                    </g>
+    <section class="container apropos">
+        <div class="map row border border-black view">
+            <div class="map_image col-12">
+                <svg class="" xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="{{ region.viewbox }}">
+                {% for dept in depts %}
+                    <a class="{{ dept.class_name }}" xlink:title="{{ dept.name }}" xlink:href="#"><path d="{{ dept.coord }}"/></a>
+                {% endfor %}
                 </svg>
             </div>
-            <div class="map_list col-4">
-            {% for dept in depts %}
-                <ul>
-                    <li><a href="#" class="text-light {{ dept.class_name }}">{{ dept.name }}</a></li>
-                </ul>
-            {% endfor %}
+        </div>
+    </section>
+    <!--Wikipedia-->
+    <section>
+        <div class="container border border-black p-5 my-5 apropos">
+            <div class="row">
+                <div class="row font-weight-bold underline">
+                    <p>A propos</p>
+                </div>
+                <div class="row">
+                    <p>{{ wiki }}</p>
+                </div>
+                <div class="row">
+                    <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ wi }}">sur Wikipédia</a></p>
+                </div>
             </div>
         </div>
     </section>

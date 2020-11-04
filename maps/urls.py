@@ -2,7 +2,7 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('france', views.country, name='france'),
+    path('france', views.france, name='france'),
     path('region/<int:region_id>', views.region, name='region'),
 ]
 
