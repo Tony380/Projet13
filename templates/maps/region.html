@@ -2,7 +2,8 @@
 {% load static %}
 {% block title %}{{ region.name }}{% endblock %}
 {% block content %}
-    <section class="container apropos">
+<section class="section">
+    <section class="container apropos top">
         <div class="map row view">
             <div class="map_image col-12">
                 <svg class="" xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="{{ region.viewbox }}">
@@ -15,9 +16,9 @@
     </section>
     <!--list of regions-->
     <section class="container mt-5 apropos">
-        <div class="map_list row pt-2">
+        <div class="map_list row px-2 py-4">
             {% for dept in depts %}
-            <div class="col-6">
+            <div class="col-6 text-center">
                 <p><a class="change {{ dept.class_name }}" href="#">{{ dept.name }}</a></p>
             </div>
             {% endfor %}
@@ -39,4 +40,5 @@
             </div>
         </div>
     </section>
+</section>
 {% endblock %}

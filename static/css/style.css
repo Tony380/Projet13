@@ -1,3 +1,11 @@
+html, body{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.section{
+    flex: 1;
+}
 .un{
     -webkit-text-fill-color: #000080;
 }
@@ -33,7 +41,6 @@
 .map{
     padding-top: 20px;
     padding-bottom: 20px;
-    margin-top: 100px;
 }
 .underline{
     text-decoration: underline;
@@ -41,4 +48,8 @@
 }
 .apropos{
     background-color: #F0EFAF;
+    border: 1px solid black;
+}
+.top{
+    margin-top: 150px;
 }

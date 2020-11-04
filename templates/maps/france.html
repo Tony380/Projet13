@@ -3,7 +3,7 @@
 {% block title %}France Métropolitaine{% endblock %}
 {% block content %}
     <!--map-->
-    <section class="container apropos">
+    <section class="container apropos top">
         <div class="map row">
             <div class="map_image col-12">
                 <svg class="view" xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="20 0 600 600">
@@ -18,7 +18,7 @@
     <section class="container mt-5 apropos">
         <div class="map_list row pt-2">
             {% for region in regions %}
-            <div class="col-6">
+            <div class="col-6 text-center">
                 <p><a class="change {{ region.class_name }}" href="{% url 'maps:region' region_id=region.id %}">{{ region.name }}</a></p>
             </div>
             {% endfor %}
