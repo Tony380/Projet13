@@ -15,10 +15,10 @@
     </section>
     <!--list of regions-->
     <section class="container mt-5 apropos">
-        <div class="map_list row">
+        <div class="map_list row pt-2">
             {% for dept in depts %}
             <div class="col-6">
-                <a class="{{ dept.class_name }}" href="">{{ dept.name }}</a>
+                <p><a class="change {{ dept.class_name }}" href="#">{{ dept.name }}</a></p>
             </div>
             {% endfor %}
         </div>

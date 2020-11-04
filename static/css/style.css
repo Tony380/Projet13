@@ -18,9 +18,14 @@
     fill: #388E78;
 }
 .map_list a{
+    color: black;
     padding-top: 20px;
     text-decoration: none;
     transition: color 0.3s;
+}
+
+.change:hover{
+    color: #64a19d;
 }
 .view{
     max-height: 550px;
