@@ -2,8 +2,15 @@
 {% load static %}
 {% block title %}France Métropolitaine{% endblock %}
 {% block content %}
+<section class="top">
+    <!--title-->
+    <div class="container">
+        <div class="row apropos bg-info text-white">
+            <div class="col-12 text-center text-light">France Métropolitaine</div>
+        </div>
+    </div>
     <!--map-->
-    <section class="container apropos top">
+    <section class="container apropos">
         <div class="map row">
             <div class="map_image col-12">
                 <svg class="view" xmlns="http://www.w3.org/2000/svg" xmlns:amcharts="http://amcharts.com/ammap" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="20 0 600 600">
@@ -14,8 +21,14 @@
             </div>
         </div>
     </section>
+    <!--title-->
+    <div class="container mt-5">
+        <div class="row apropos bg-info text-white">
+            <div class="col-12 text-center">Les régions</div>
+        </div>
+    </div>
     <!--list of regions-->
-    <section class="container mt-5 apropos">
+    <section class="container apropos">
         <div class="map_list row pt-2">
             {% for region in regions %}
             <div class="col-6 text-center">
@@ -27,15 +40,16 @@
     <!--Wikipedia-->
     <section>
         <div class="container p-5 my-5 apropos">
-            <div class="row font-weight-bold underline">
+            <div class="col-12 font-weight-bold underline">
                 <p>A propos</p>
             </div>
-            <div class="row">
+            <div class="col-12">
                 <p>{{ wiki }}</p>
             </div>
-            <div class="row">
-                <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ wi }}">sur Wikipédia</a></p>
+            <div class="col-12">
+                <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ wi }}">Wikipédia</a></p>
             </div>
         </div>
     </section>
+</section>
 {% endblock %}

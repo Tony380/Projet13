@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ department.name }}{% endblock %}
+{% block content %}
+<section class="section top mb-5">
+    <!--title map-->
+    <div class="container mt-5">
+        <div class="row apropos bg-info text-white">
+            <div class="col-12 text-center">{{ department.name }}</div>
+        </div>
+    </div>
+    <!--department map-->
+    <section class="container justify-content-center">
+        <div class="row apropos">
+            <div class="col-12 text-center">
+                <img class="img-fluid" src="{{ url }}" alt="Image du département">
+            </div>
+        </div>
+    </section>
+    <!--title-->
+    <div class="container mt-5">
+        <div class="row apropos bg-info text-white">
+            <div class="col-12 text-center">Les communes</div>
+        </div>
+    </div>
+    <!--Communes list-->
+    <section class="container apropos">
+        <div class="map_list row px-2 py-4">
+            {% for com in page_obj %}
+            <div class="col-4 text-center">
+                <p><a class="change {{ department.class_name }}" href="{% url 'maps:commune' com=com dept_id=department.id %}">{{ com }}</a></p>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="pagination justify-content-center mb-5">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page=1">&laquo;</a>
+                    <a href="?page={{ page_obj.previous_page_number }}">Précédente</a>
+                {% endif %}
+
+                <span class="current">
+                    Page {{ page_obj.number }} sur {{ page_obj.paginator.num_pages }}
+                </span>
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">Suivante</a>
+                    <a href="?page={{ page_obj.paginator.num_pages }}">&raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </section>
+    <!--Wikipedia-->
+    <section>
+        <div class="container p-5 my-5 apropos">
+            <div class="row">
+                <div class="col-12 font-weight-bold underline">
+                    <p>A propos</p>
+                </div>
+                <div class="col-12">
+                    <p>{{ wiki }}</p>
+                </div>
+                <div class="col-12">
+                    <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ wi }}">Wikipédia</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

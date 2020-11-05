@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ com }}{% endblock %}
+{% block content %}
+<section class="section top mb-5">
+    <!--title map-->
+    <div class="container mt-5">
+        <div class="row apropos bg-info text-white">
+            <div class="col-12 text-center">{{ com }}</div>
+        </div>
+    </div>
+    <!--department map-->
+    <section class="container justify-content-center">
+        <div class="row apropos">
+            <div class="col-12 text-center">
+                <img class="img-fluid" src="{{ url }}" alt="Image de la commune">
+            </div>
+        </div>
+    </section>
+    <!--Wikipedia-->
+    <section>
+        <div class="container p-5 my-5 apropos">
+            <div class="row">
+                <div class="col-12 font-weight-bold underline">
+                    <p>A propos</p>
+                </div>
+                <div class="col-12">
+                    <p>{{ wiki }}</p>
+                </div>
+                <div class="col-12">
+                    <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ wi }}">Wikipédia</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

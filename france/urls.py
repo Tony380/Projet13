@@ -25,6 +25,8 @@ urlpatterns = [
     path('maps/', include('maps.urls')),
 ]
 
+handler404 = views.my_404_view
+handler500 = views.my_500_view
 
 if settings.DEBUG:
     import debug_toolbar
