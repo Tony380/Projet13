@@ -13,7 +13,7 @@
     <section class="container justify-content-center">
         <div class="row apropos">
             <div class="col-12 text-center">
-                <img class="img-fluid" src="{{ url }}" alt="Image du département">
+                <img class="img-fluid" src="{{ google_url }}" alt="Image du département">
             </div>
         </div>
     </section>
@@ -27,9 +27,15 @@
     <section class="container apropos">
         <div class="map_list row px-2 py-4">
             {% for com in page_obj %}
-            <div class="col-4 text-center">
-                <p><a class="change {{ department.class_name }}" href="{% url 'maps:commune' com=com dept_id=department.id %}">{{ com }}</a></p>
-            </div>
+                {% if com == 'Paris' %}
+                    <div class="col-12 text-center">
+                        <p><a class="change {{ department.class_name }}" href="{% url 'maps:commune' com=com dept_id=department.id %}">{{ com }}</a></p>
+                    </div>
+                {% else %}
+                    <div class="col-4 text-center">
+                        <p><a class="change {{ department.class_name }}" href="{% url 'maps:commune' com=com %}">{{ com }}</a></p>
+                    </div>
+                {% endif %}
             {% endfor %}
         </div>
         <div class="pagination justify-content-center mb-5">
@@ -58,10 +64,10 @@
                     <p>A propos</p>
                 </div>
                 <div class="col-12">
-                    <p>{{ wiki }}</p>
+                    <p>{{ wiki_summary }}</p>
                 </div>
                 <div class="col-12">
-                    <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ wi }}">Wikipédia</a></p>
+                    <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ wiki_url }}">Wikipédia</a></p>
                 </div>
             </div>
         </div>
