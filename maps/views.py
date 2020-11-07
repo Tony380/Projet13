@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import Department, Region
-from .wiki import *
+from .wiki import Wiki
 from .communes import communes
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 import os
@@ -8,9 +8,9 @@ import os
 api_key = os.environ.get('API_KEY')
 
 
-def paginate(request, args, prods_per_page):
+def paginate(request, args, element_per_page):
     """ Paginate function """
-    paginator = Paginator(args, prods_per_page)
+    paginator = Paginator(args, element_per_page)
     page_number = request.GET.get('page', 1)
 
     try:
