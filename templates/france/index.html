@@ -2,77 +2,89 @@
 {% load static %}
 {% block title %}Accueil{% endblock %}
 {% block content %}
-    <!-- Masthead-->
-    <header class="masthead">
-        <div class="container d-flex h-100 align-items-center">
-            <div class="mx-auto text-center">
-                <h1 class="mx-auto my-0 text-uppercase"><span class="un">FR</span><span class="deux">AN</span><span class="trois">CE</span></h1>
-                <h2 class="text-white mx-auto mt-2 mb-5">La france en un clic !</h2>
-                <a class="btn btn-primary js-scroll-trigger" href="{% url 'maps:france' %}">Commencer</a>
-            </div>
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="row justify-content-center">
+                        <div class="position-absolute text-center alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                            {{ message }}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endif %}
+            <h1 class="mx-auto mt-5 text-uppercase"><span class="un">FR</span><span class="deux">AN</span><span class="trois">CE</span></h1>
+            <h2 class="text-white mx-auto mt-2 mb-5">La france en un clic !</h2>
+            <a class="btn btn-primary js-scroll-trigger" href="{% url 'maps:france' %}">Commencer</a>
         </div>
-    </header>
-    <!--Images-->
-    <section class="projects-section" id="projects">
-        <div class="container">
-            <!--Image regions.png-->
-            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                <div class="col-lg-6"><img class="img-fluid" src='{% static "img/regions.png"%}' alt="" /></div>
-                <div class="col-lg-6">
-                    <div class="bg-dark text-center h-100 project">
-                        <div class="d-flex h-100">
-                            <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <h4 class="text-light">Régions</h4>
-                                <p class="mb-0 text-light">Retrouvez les régions de la France métropolitaine</p>
-                                <hr class="d-none d-lg-block mb-0 ml-0" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Image departments.png-->
-            <div class="row justify-content-center no-gutters">
-                <div class="col-lg-6"><img class="img-fluid" src='{% static "img/departements.png" %}' alt="" /></div>
-                <div class="col-lg-6 order-lg-first">
-                    <div class="bg-dark text-center h-100 project">
-                        <div class="d-flex h-100">
-                            <div class="project-text w-100 my-auto text-center text-lg-right">
-                                <h4 class="text-light">Départements</h4>
-                                <p class="mb-0 text-light">Explorez les départements</p>
-                                <hr class="d-none d-lg-block mb-0 mr-0" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--Image commune.png-->
-            <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
-                <div class="col-lg-6"><img class="img-fluid" src='{% static "img/commune.png"%}' alt="" /></div>
-                <div class="col-lg-6">
-                    <div class="bg-dark text-center h-100 project">
-                        <div class="d-flex h-100">
-                            <div class="project-text w-100 my-auto text-center text-lg-left">
-                                <h4 class="text-light">Communes</h4>
-                                <p class="mb-0 text-light">Découvrez les communes de chaque départements</p>
-                                <hr class="d-none d-lg-block mb-0 ml-0" />
-                            </div>
+    </div>
+</header>
+<!--Images-->
+<section class="projects-section" id="projects">
+    <div class="container">
+        <!--Image regions.png-->
+        <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+            <div class="col-lg-6"><img class="img-fluid" src='{% static "img/regions.png"%}' alt="" /></div>
+            <div class="col-lg-6">
+                <div class="bg-dark text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                            <h4 class="text-light">Régions</h4>
+                            <p class="mb-0 text-light">Retrouvez les régions de la France métropolitaine</p>
+                            <hr class="d-none d-lg-block mb-0 ml-0" />
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>
-    <!-- Contact-->
-    <section class="contact-section bg-dark">
-        <div class="container">
-            <div class="social d-flex justify-content-center">
-                <a class="mx-2" target="_blank" href="https://twitter.com/TonyG380"><i class="fab fa-twitter"></i></a>
-                <a class="mx-2" target="_blank" href="https://www.linkedin.com/in/tony-a-gonzalez"><i class="fab fa-linkedin"></i></a>
-                <a class="mx-2" target="_blank" href="https://github.com/Tony380/Projet13"><i class="fab fa-github"></i></a>
-            </div>
-            <div class="justify-content-center">
-                <p class="text-center mt-3 mb-0"><a href="{% url 'legal' %}">Mentions légales</a></p>
+        <!--Image departments.png-->
+        <div class="row justify-content-center no-gutters">
+            <div class="col-lg-6"><img class="img-fluid" src='{% static "img/departements.png" %}' alt="" /></div>
+            <div class="col-lg-6 order-lg-first">
+                <div class="bg-dark text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-right">
+                            <h4 class="text-light">Départements</h4>
+                            <p class="mb-0 text-light">Explorez les départements</p>
+                            <hr class="d-none d-lg-block mb-0 mr-0" />
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </section>
+        <!--Image commune.png-->
+        <div class="row justify-content-center no-gutters mb-5 mb-lg-0">
+            <div class="col-lg-6"><img class="img-fluid" src='{% static "img/commune.png"%}' alt="" /></div>
+            <div class="col-lg-6">
+                <div class="bg-dark text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-left">
+                            <h4 class="text-light">Communes</h4>
+                            <p class="mb-0 text-light">Découvrez les communes de chaque départements</p>
+                            <hr class="d-none d-lg-block mb-0 ml-0" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Contact-->
+<section class="contact-section bg-dark">
+    <div class="container">
+        <div class="social d-flex justify-content-center">
+            <a class="mx-2" target="_blank" href="https://twitter.com/TonyG380"><i class="fab fa-twitter"></i></a>
+            <a class="mx-2" target="_blank" href="https://www.linkedin.com/in/tony-a-gonzalez"><i class="fab fa-linkedin"></i></a>
+            <a class="mx-2" target="_blank" href="https://github.com/Tony380/Projet13"><i class="fab fa-github"></i></a>
+        </div>
+        <div class="justify-content-center">
+            <p class="text-center mt-3 mb-0"><a href="{% url 'legal' %}">Mentions légales</a></p>
+        </div>
+    </div>
+</section>
 {% endblock %}

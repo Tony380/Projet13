@@ -28,6 +28,8 @@ ALLOWED_HOSTS = ['*']
 # Application definition
 
 INSTALLED_APPS = [
+    'users.apps.UserConfig',
+    'maps.apps.MapsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -36,9 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'debug_toolbar',
     'django_extensions',
+    'django_cleanup',
     'crispy_forms',
-    'users',
-    'maps',
 ]
 
 MIDDLEWARE = [
@@ -146,6 +147,10 @@ else:
     STATICFILES_DIRS = (
         os.path.join(BASE_DIR, 'static'),
     )
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
