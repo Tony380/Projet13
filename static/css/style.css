@@ -53,3 +53,9 @@ html, body{
 .top{
     margin-top: 150px;
 }
+.profile{
+    background-color: rgba(0, 0, 0, 0.7);
+}
+.favorite{
+    font-family: Arial, Helvetica, sans-serif;
+}

@@ -3,7 +3,7 @@
 {% block title %}Profil{% endblock %}
 {% load crispy_forms_tags %}
 {% block content %}
-<section class="top section mb-5">
+<section class="top section">
     {% if messages %}
         {% for message in messages %}
             <div class="row justify-content-center">
@@ -16,49 +16,48 @@
             </div>
         {% endfor %}
     {% endif %}
-    <div class="container">
-        <div class="content-section text-light">
-            <div class="text-center">
-                <img src="{{ user.profile.image.url }}" class="rounded-circle mb-5">
+    <div class="container pt-5">
+        <div class="row mt-5">
+            <div class="col-lg-3 col-md-1 m-auto">
+                <img src="{{ user.profile.image.url }}" class="rounded-circle">
             </div>
-        </div>
-        <div class="row justify-content-center">
-            <form method="post" enctype="multipart/form-data" class="bg-light p-3 rounded">
-                {% csrf_token %}
-                {{ u_form|crispy }}
-                {{ p_form|crispy }}
-                <button type="submit" class="btn btn-primary">Modifier vos informations</button>
-            </form>
-        </div>
-        <div class="row justify-content-center">
-            <a href="{% url 'users:password_change' %}" class="btn btn-primary mt-5" role="button">Modifier votre mot de passe</a>
-        </div>
-        <!-- Button trigger modal -->
-        <div class="row justify-content-center">
-            <button type="button" class="btn btn-primary mt-5" data-toggle="modal" data-target="#exampleModal">
-                Supprimer votre compte
-            </button>
-        </div>
-        <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Suppression du compte</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        Etes-vous sûr de vouloir supprimer votre compte?<br>
-                        Cette action est irréversible!
-                    </div>
-                    <div class="modal-footer">
-                        <a href="{% url 'users:del_user' %}" class="btn btn-primary mt-5" role="button">Supprimer votre compte</a>
-                    </div>
+            <div class="col-lg-5 col-md-6 text-light m-auto">
+                <div class="profile p-2 rounded">
+                    <p>Nom d'utilisateur : {{ user.username }}</p>
+                    <p>E-mail : {{ user.email }}</p>
+                    <p>Prénom : {{ user.first_name }}</p>
+                    <p>Nom : {{ user.last_name }}</p>
+                    <a class="btn btn-primary p-2 mt-4" href="{% url 'users:info' %}" role="button">Paramètres du profil</a>
                 </div>
             </div>
         </div>
+    </div>
+    <div class="container mt-5">
+        <div class="row apropos">
+            <h3 class="col-12 text-center favorite">Vos favoris</h3>
+        </div>
+        {% if favorite %}
+            {% for fav in favorite %}
+            <div class="row my-3 apropos">
+                <div class="col-12 font-weight-bold underline">
+                    <p>{{ fav.0 }}</p>
+                </div>
+                <div class="col-12">
+                    <p>{{ fav.1 }}</p>
+                </div>
+                <div class="col-12">
+                    <p class="font-weight-bold">Pour en savoir plus : <a target="_blank" href="{{ fav.2 }}">Wikipédia</a></p>
+                </div>
+                <div class="col-12 pb-3">
+                    <a class="btn btn-primary p-2" href="{% url 'maps:del_favorite' title=fav.0 %}" role="button">Supprimer cet article</a>
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="row apropos my-3">
+                <p class="col-12 text-center favorite">Vous n'avez aucun favoris</p>
+            </div>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

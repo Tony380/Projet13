@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Modification des informations{% endblock %}
+{% load crispy_forms_tags %}
+{% block content %}
+<section class="top section mb-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <form method="post" enctype="multipart/form-data" class="bg-light p-3 rounded">
+                {% csrf_token %}
+                {{ u_form|crispy }}
+                {{ p_form|crispy }}
+                <button type="submit" class="btn btn-primary p-2">Modifier vos informations</button>
+            </form>
+        </div>
+        <div class="row justify-content-center">
+            <a href="{% url 'users:password_change' %}" class="btn btn-primary mt-5 p-2" role="button">Modifier votre mot de passe</a>
+        </div>
+        <!-- Button trigger modal -->
+        <div class="row justify-content-center">
+            <button type="button" class="btn btn-primary mt-5 p-2" data-toggle="modal" data-target="#exampleModal">
+                Supprimer votre compte
+            </button>
+        </div>
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Suppression du compte</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Etes-vous sûr de vouloir supprimer votre compte?<br>
+                        Cette action est irréversible!
+                    </div>
+                    <div class="modal-footer">
+                        <a href="{% url 'users:del_user' %}" class="btn btn-primary mt-5 p-2" role="button">Supprimer votre compte</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -30,3 +31,16 @@ class Department(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Favorite(models.Model):
+    title = models.CharField(verbose_name="Titre", max_length=1000)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='articles')
+
+    class Meta:
+        verbose_name = 'Favori'
+        verbose_name_plural = "Favoris"
+        ordering = ['title']
+
+    def __str__(self):
+        return self.title

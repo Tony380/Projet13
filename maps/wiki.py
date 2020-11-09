@@ -4,8 +4,8 @@ import requests
 
 class Wiki:
     """Uses Wikipedia's API to fetch extract and link of the page"""
-    def __init__(self, question):
-        self.question = question
+    def __init__(self, title):
+        self.title = title
         self.url = 'https://fr.wikipedia.org/w/api.php'
         self.params = {'action': 'query',
                        'generator': 'search',
@@ -14,7 +14,7 @@ class Wiki:
                        'indexpageids': True,
                        'exsentences': 3,
                        'gsrlimit': 1,
-                       'gsrsearch': self.question,
+                       'gsrsearch': self.title,
                        'exsectionformat': 'plain',
                        'format': 'json'
                        }

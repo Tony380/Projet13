@@ -5,6 +5,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.messages.views import SuccessMessageMixin
 from django.contrib.auth.views import LoginView, PasswordChangeView
+from maps.models import Favorite
+from maps.wiki import Wiki
 
 
 def register(request):
@@ -32,25 +34,17 @@ def register(request):
 
 @login_required
 def profile(request):
-    """ User's profile page with data changes possibilty"""
-    if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)
-        p_form = ProfileUpdateForm(request.POST, request.FILES,
-                                   instance=request.user.profile)
-        if u_form.is_valid() and p_form.is_valid():
-            u_form.save()
-            p_form.save()
-            messages.success(request, 'Informations mis à jour avec succès !')
-            return redirect('users:profile')
+    user = request.user
+    favs = Favorite.objects.filter(user_id=user.id)
+    favorite = []
+    if len(favs) > 0:
+        for fav in favs:
+            wiki_title = fav.title
+            wiki_page = Wiki(fav.title).search()['page']
+            wiki_url = Wiki(fav.title).search()['url']
+            favorite.append([wiki_title, wiki_page, wiki_url])
 
-    else:
-        u_form = UserUpdateForm(instance=request.user)
-        p_form = ProfileUpdateForm(instance=request.user.profile)
-
-    context = {
-        'u_form': u_form,
-        'p_form': p_form
-    }
+    context = {'favorite': favorite}
     return render(request, 'profile.html', context)
 
 
@@ -80,3 +74,27 @@ def del_user(request):
     user.delete()
     messages.success(request, "Votre profil a été supprimé avec succès !")
     return redirect('index')
+
+
+@login_required
+def info(request):
+    """ User's profile page with data changes possibilty"""
+    if request.method == 'POST':
+        u_form = UserUpdateForm(request.POST, instance=request.user)
+        p_form = ProfileUpdateForm(request.POST, request.FILES,
+                                   instance=request.user.profile)
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request, 'Informations mis à jour avec succès !')
+            return redirect('users:profile')
+
+    else:
+        u_form = UserUpdateForm(instance=request.user)
+        p_form = ProfileUpdateForm(instance=request.user.profile)
+
+        context = {
+            'u_form': u_form,
+            'p_form': p_form
+        }
+        return render(request, 'info.html', context)

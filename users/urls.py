@@ -7,6 +7,7 @@ urlpatterns = [
         template_name='login.html'), name='login'),
     path('logout', views.logout_view, name='logout'),
     path('profile', views.profile, name='profile'),
+    path('info', views.info, name='info'),
     path('password_change', views.PasswordView.as_view(
         template_name='password.html',
         success_url='profile'),
