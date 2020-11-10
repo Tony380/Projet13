@@ -3,5 +3,4 @@ venv/
 __pycache__/
 /htmlcov/
 .coverage
-migrations/
 profile_pics/
