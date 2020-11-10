@@ -5,12 +5,14 @@ from django.contrib.auth.models import User
 from .forms import RegisterForm
 from .views import redirect
 from .models import Profile
+from maps.models import Favorite
 
 
 class TestUser(TestCase):
     """Test all User app views"""
 
     def test_register_view(self):
+        """ Test register page"""
         response = self.client.get(reverse('users:register'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'register.html')
@@ -21,7 +23,18 @@ class TestUser(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'register.html')
 
+    def test_good_register_view(self):
+        """Test when information introduced is right"""
+        response = self.client.post(reverse('users:register'),
+                                    data={'username': 'test',
+                                          'email': 'test@gmail.com',
+                                          'password1': 'test123test',
+                                          'password2': 'test123test'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateUsed(redirect('index.html'))
+
     def test_login_view(self):
+        """Test login page"""
         response = self.client.get(reverse('users:login'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'login.html')
@@ -47,24 +60,50 @@ class TestUser(TestCase):
         self.assertTemplateUsed(redirect('login.html'))
 
     def test_profile_logged_in_view(self):
-        """When the user is logged in"""
+        """ Profile view with favorites and when user is logged in"""
         user = User.objects.create(username="name")
         self.client.force_login(user)
+        Favorite.objects.create(title='test_title',
+                                user_id=user.id)
+        Favorite.objects.create(title='title_test',
+                                user_id=user.id)
         response = self.client.get(reverse('users:profile'))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'profile.html')
 
-    def test_profile_string(self):
-        User.objects.create(username="nametestnametest")
-        pro = Profile.objects.first()
-        self.assertEqual(str(pro), 'nametestnametest')
-
-    def test_del_user(self):
+    def test_del_user_view(self):
+        """Test delete user account"""
         user = User.objects.create(username="name")
         self.client.force_login(user)
         response = self.client.get(reverse('users:del_user'))
         self.assertEqual(response.status_code, 302)
         self.assertTemplateUsed(redirect('index.html'))
+
+    def test_info_get_view(self):
+        """Test get method of info page"""
+        user = User.objects.create(username="name")
+        self.client.force_login(user)
+        response = self.client.get(reverse('users:info'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(redirect('info.html'))
+
+    def test_info_post_view(self):
+        """Test post method of info page"""
+        user = User.objects.create(username="name")
+        self.client.force_login(user)
+        response = self.client.post(reverse('users:info'),
+                                    data={'username': 'test',
+                                          'email': 'test@gmail.com',
+                                          'password1': 'test123test',
+                                          'password2': 'test123test'})
+        self.assertEqual(response.status_code, 302)
+        self.assertTemplateUsed(redirect('profile.html'))
+
+    def test_profile_string(self):
+        """Test string method of profile model"""
+        User.objects.create(username="nametestnametest")
+        pro = Profile.objects.first()
+        self.assertEqual(str(pro), 'nametestnametest')
 
 
 class TestUserForms(TestCase):

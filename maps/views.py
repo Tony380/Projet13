@@ -57,6 +57,7 @@ def region(request, region_id):
 
 
 def department(request, department_id):
+    """Department page"""
     department = Department.objects.get(id=department_id)
     dept_class = department.class_name
     coms = []
@@ -84,6 +85,7 @@ def department(request, department_id):
 
 
 def commune(request, com):
+    """Commune page"""
     title = com + ' commune'
     wiki_page = Wiki(title).search()
     wiki_summary = wiki_page['page']

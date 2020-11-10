@@ -34,6 +34,7 @@ def register(request):
 
 @login_required
 def profile(request):
+    """User's profile page"""
     user = request.user
     favs = Favorite.objects.filter(user_id=user.id)
     favorite = []
