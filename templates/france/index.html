@@ -19,7 +19,7 @@
                 {% endfor %}
             {% endif %}
             <h1 class="mx-auto mt-5 text-uppercase"><span class="un">FR</span><span class="deux">AN</span><span class="trois">CE</span></h1>
-            <h2 class="text-white mx-auto mt-2 mb-5">La France en un clic !</h2>
+            <h2 class="text-white mx-auto mt-2 mb-5">Découvrez la France en quelques clics</h2>
             <a class="btn btn-primary js-scroll-trigger" href="{% url 'maps:france' %}">Commencer</a>
         </div>
     </div>
@@ -35,7 +35,7 @@
                     <div class="d-flex h-100">
                         <div class="project-text w-100 my-auto text-center text-lg-left">
                             <h4 class="text-light">Régions</h4>
-                            <p class="mb-0 text-light">Retrouvez les régions de la France métropolitaine</p>
+                            <p class="mb-0 text-light">Découvrez les régions de la France métropolitaine</p>
                             <hr class="d-none d-lg-block mb-0 ml-0" />
                         </div>
                     </div>
@@ -65,11 +65,24 @@
                     <div class="d-flex h-100">
                         <div class="project-text w-100 my-auto text-center text-lg-left">
                             <h4 class="text-light">Communes</h4>
-                            <p class="mb-0 text-light">Découvrez les communes de chaque départements</p>
+                            <p class="mb-0 text-light">Retrouvez les communes de chaque départements</p>
                             <hr class="d-none d-lg-block mb-0 ml-0" />
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Signup-->
+<section class="bg-dark p-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 col-lg-8 mx-auto text-center">
+                <h3 class="text-white mb-5">Créez un compte pour sauvegarder vos recherches</h3>
+                <form class="form-inline d-flex">
+                    <a class="btn btn-primary mx-auto" href="{% url 'users:register' %}">Créer un compte</a>
+                </form>
             </div>
         </div>
     </div>
@@ -83,7 +96,7 @@
             <a class="mx-2" target="_blank" href="https://github.com/Tony380/Projet13"><i class="fab fa-github"></i></a>
         </div>
         <div class="justify-content-center">
-            <p class="text-center mt-3 mb-0"><a href="{% url 'legal' %}">Mentions légales</a></p>
+            <p class="text-center mt-3 mb-0"><a class="text-decoration-none" href="{% url 'legal' %}">Mentions légales</a></p>
         </div>
     </div>
 </section>
