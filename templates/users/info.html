@@ -9,7 +9,6 @@
             <form method="post" enctype="multipart/form-data" class="bg-light p-3 rounded">
                 {% csrf_token %}
                 {{ u_form|crispy }}
-                {{ p_form|crispy }}
                 <button type="submit" class="btn btn-primary p-2">Modifier vos informations</button>
             </form>
         </div>

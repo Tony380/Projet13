@@ -4,7 +4,6 @@ from django.urls import reverse
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 from .views import redirect
-from .models import Profile
 from maps.models import Favorite
 
 
@@ -98,12 +97,6 @@ class TestUser(TestCase):
                                           'password2': 'test123test'})
         self.assertEqual(response.status_code, 302)
         self.assertTemplateUsed(redirect('profile.html'))
-
-    def test_profile_string(self):
-        """Test string method of profile model"""
-        User.objects.create(username="nametestnametest")
-        pro = Profile.objects.first()
-        self.assertEqual(str(pro), 'nametestnametest')
 
 
 class TestUserForms(TestCase):
