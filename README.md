@@ -68,7 +68,7 @@ et des départements. Chargez-le comme suit:
 ## L'application en ligne
 Cette application est aussi utilisable en ligne et est responsive.
 
-Elle est hébergée sur Heroku et utilisable [ici](https://france2020.herokuapp.com "purbeurre").
+Elle est hébergée sur Heroku et utilisable [ici](https://france2020.herokuapp.com "france2020").
 
 ## Information complétaire
 Le tableau Trello relatif à ce projet se trouve [ici](https://trello.com/b/exMtG38m/projet-13 "Tableau Trello").
