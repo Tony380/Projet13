@@ -13,3 +13,4 @@ omit =
     */asgi.py
     */wsgi.py
     venv/*
+    */travis.py

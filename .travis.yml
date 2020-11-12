@@ -9,7 +9,7 @@ install:
 services:
   - postgresql
 
-env: DJANGO_SETTINGS_MODULE=france.settings
+env: DJANGO_SETTINGS_MODULE=france.travis
 
 script:
   - python manage.py test
