@@ -81,16 +81,16 @@ def del_user(request):
 def info(request):
     """ User's profile page with data changes possibilty"""
     if request.method == 'POST':
-        u_form = UserUpdateForm(request.POST, instance=request.user)
-        if u_form.is_valid():
-            u_form.save()
+        update_form = UserUpdateForm(request.POST, instance=request.user)
+        if update_form.is_valid():
+            update_form.save()
             messages.success(request, 'Informations mis à jour avec succès !')
             return redirect('users:profile')
 
     else:
-        u_form = UserUpdateForm(instance=request.user)
+        update_form = UserUpdateForm(instance=request.user)
 
         context = {
-            'u_form': u_form
+            'update_form': update_form
         }
         return render(request, 'info.html', context)
