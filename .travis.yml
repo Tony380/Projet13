@@ -1,15 +1,11 @@
 language: python
 
-python:
-  - '3.8'
+python: '3.8'
 
-install:
-  - pip install -r requirements.txt
+install: pip install -r requirements.txt
 
-services:
-  - postgresql
+services: postgresql
 
 env: DJANGO_SETTINGS_MODULE=france.travis
 
-script:
-  - python manage.py test
+script: python manage.py test

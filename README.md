@@ -25,21 +25,26 @@ L'option de sauvegarde n'est disponible qu'avec la création d'un compte utilisa
 ## Installation et utilisation sur votre ordinateur
 Pour utiliser l'application sur votre serveur local:
 
-1. Clonez ce projet sur votre ordinateur.
 
-2. Installez les dépendances du fichier requirements.txt.
+1. Créez un nouveau projet avec un environnement virtuel puis activez ce dernier.
+
+2. Clonez ce repository:
+
+        git clone https://github.com/Tony380/Projet13.git
+
+3. Installez les dépendances du fichier requirements.txt.
 
         pip install -r requirements.txt
         
-3. Vous aurez besoin de créer une base de données avec postgreSQL nommée 'france'.
+4. Vous aurez besoin de créer une base de données avec postgreSQL nommée 'france'.
 Vous pouvez configurer les options qui vous sont personnelles dans le fichier settings.py
 dans la partie DATABASE = { }.
 
-4. Toujours dans le fichier settings.py, configurez l'option 'ALLOWED_HOSTS' de la manière suivante:
+5. Toujours dans le fichier settings.py, configurez l'option 'ALLOWED_HOSTS' de la manière suivante:
 
         ALLOWED_HOSTS = ['*']
         
-5. Générez une clé secrète dans la console comme suit:
+6. Générez une clé secrète dans la console comme suit:
 
         $ python
     
@@ -47,20 +52,20 @@ dans la partie DATABASE = { }.
     
         "".join([random.choice(string.printable) for _ in range(24)])
 
-6. Gardez cette clé dans vos variables d'environnement en tant que 'SECRET_KEY'.
+7. Gardez cette clé dans vos variables d'environnement en tant que 'SECRET_KEY'.
 
-7. Effectuez les migrations:
+8. Effectuez les migrations:
 
         python manage.py makemigrations
         
         python manage.py migrate
 
-8. L'application possède un dump relatif aux tables contenant les coordonnées svg des régions
-et des départements. Chargez-le comme suit:
+9. L'application possède un dump relatif aux tables contenant les coordonnées svg des régions
+et des départements pour les cartes. Chargez-le comme ceci:
 
         python manage.py loaddata maps/dumps/maps.json
 
-9. Enfin, lancez le fichier manage.py en console de cette manière:
+10. Enfin, lancez le fichier manage.py en console de cette manière:
 
         python manage.py runserver
 
