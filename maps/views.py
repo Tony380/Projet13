@@ -129,5 +129,5 @@ def del_favorite(request, title):
     user = request.user
     favorite = Favorite.objects.get(title=title, user_id=user.id)
     favorite.delete()
-    messages.success(request, 'Le favori à été supprimé avec succès')
+    messages.success(request, 'Le favori a été supprimé avec succès')
     return redirect(request.META.get('HTTP_REFERER'))

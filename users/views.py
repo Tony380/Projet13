@@ -84,7 +84,7 @@ def info(request):
         update_form = UserUpdateForm(request.POST, instance=request.user)
         if update_form.is_valid():
             update_form.save()
-            messages.success(request, 'Informations mis à jour avec succès !')
+            messages.success(request, 'Profil mis à jour avec succès !')
             return redirect('users:profile')
 
     else:
