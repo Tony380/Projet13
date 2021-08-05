@@ -77,3 +77,7 @@ Elle est hébergée sur Heroku et utilisable [ici](https://france2020.herokuapp.
 
 ## Information complétaire
 Le tableau Trello relatif à ce projet se trouve [ici](https://trello.com/b/exMtG38m/projet-13 "Tableau Trello").
+
+***Update post parcours:***
+
+***J'ai désactivé la clé API de Google Map. Les cartes de Google Map ne s'affichent plus.***
